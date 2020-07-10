@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.YwtanzhenUseMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwtanzhenUse" >
+    <result column="tzjrid" property="tzjrid" jdbcType="BIGINT" />
+    <result column="ywid" property="ywid" jdbcType="VARCHAR" />
+    <result column="tzuseid" property="tzuseid" jdbcType="VARCHAR" />
+    <result column="cjtime" property="cjtime" jdbcType="TIMESTAMP" />
+    <result column="xgtime" property="xgtime" jdbcType="TIMESTAMP" />
+    <result column="cjyuan" property="cjyuan" jdbcType="VARCHAR" />
+    <result column="jrtztype" property="jrtztype" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.YwtanzhenUseWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwtanzhenUseWithBLOBs" >
+    insert into ywtanzhen_use (tzjrid, ywid, tzuseid, 
+      cjtime, xgtime, cjyuan, 
+      jrtztype, info1, info2
+      )
+    values (#{tzjrid,jdbcType=BIGINT}, #{ywid,jdbcType=VARCHAR}, #{tzuseid,jdbcType=VARCHAR}, 
+      #{cjtime,jdbcType=TIMESTAMP}, #{xgtime,jdbcType=TIMESTAMP}, #{cjyuan,jdbcType=VARCHAR}, 
+      #{jrtztype,jdbcType=VARCHAR}, #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwtanzhenUseWithBLOBs" >
+    insert into ywtanzhen_use
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tzjrid != null" >
+        tzjrid,
+      </if>
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="tzuseid != null" >
+        tzuseid,
+      </if>
+      <if test="cjtime != null" >
+        cjtime,
+      </if>
+      <if test="xgtime != null" >
+        xgtime,
+      </if>
+      <if test="cjyuan != null" >
+        cjyuan,
+      </if>
+      <if test="jrtztype != null" >
+        jrtztype,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tzjrid != null" >
+        #{tzjrid,jdbcType=BIGINT},
+      </if>
+      <if test="ywid != null" >
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="tzuseid != null" >
+        #{tzuseid,jdbcType=VARCHAR},
+      </if>
+      <if test="cjtime != null" >
+        #{cjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xgtime != null" >
+        #{xgtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cjyuan != null" >
+        #{cjyuan,jdbcType=VARCHAR},
+      </if>
+      <if test="jrtztype != null" >
+        #{jrtztype,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getObjById" resultType="com.safez.project.entity.YwtanzhenUseWithBLOBs" parameterType="java.lang.String" >
+          select * from ywtanzhen_use where ywid = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.YwtanzhenDataUseMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwtanzhenDataUse" >
+    <result column="ysid" property="ysid" jdbcType="BIGINT" />
+    <result column="ywid" property="ywid" jdbcType="VARCHAR" />
+    <result column="tzid" property="tzid" jdbcType="VARCHAR" />
+    <result column="zdyname" property="zdyname" jdbcType="VARCHAR" />
+    <result column="zdymiaoshu" property="zdymiaoshu" jdbcType="VARCHAR" />
+    <result column="fjgqdzhiduan" property="fjgqdzhiduan" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.YwtanzhenDataUseWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwtanzhenDataUseWithBLOBs" >
+    insert into ywtanzhen_data_use (ysid, ywid, tzid, 
+      zdyname, zdymiaoshu, fjgqdzhiduan, 
+      info1, info2)
+    values (#{ysid,jdbcType=BIGINT}, #{ywid,jdbcType=VARCHAR}, #{tzid,jdbcType=VARCHAR}, 
+      #{zdyname,jdbcType=VARCHAR}, #{zdymiaoshu,jdbcType=VARCHAR}, #{fjgqdzhiduan,jdbcType=VARCHAR}, 
+      #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwtanzhenDataUseWithBLOBs" >
+    insert into ywtanzhen_data_use
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ysid != null" >
+        ysid,
+      </if>
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="tzid != null" >
+        tzid,
+      </if>
+      <if test="zdyname != null" >
+        zdyname,
+      </if>
+      <if test="zdymiaoshu != null" >
+        zdymiaoshu,
+      </if>
+      <if test="fjgqdzhiduan != null" >
+        fjgqdzhiduan,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ysid != null" >
+        #{ysid,jdbcType=BIGINT},
+      </if>
+      <if test="ywid != null" >
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="tzid != null" >
+        #{tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="zdyname != null" >
+        #{zdyname,jdbcType=VARCHAR},
+      </if>
+      <if test="zdymiaoshu != null" >
+        #{zdymiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="fjgqdzhiduan != null" >
+        #{fjgqdzhiduan,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getYwtanzhenDataUse" resultType="com.safez.project.entity.YwtanzhenDataUseWithBLOBs" parameterType="java.util.HashMap" >
+        select *  from ywtanzhen_data_use
+        where 1=1
+        <if test="ywid!=null">
+          and ywid=#{ywid}
+        </if>
+        <if test="tzid!=null">
+          and tzid=#{tzid}
+        </if>
+  </select>
+
+  <select id="getYwtanzhenDataUseList" resultType="com.safez.project.entity.YwtanzhenDataUseWithBLOBs" parameterType="java.util.HashMap" >
+     select *  from ywtanzhen_data_use
+        where 1=1
+    <if test="ywid!=null">
+      and ywid=#{ywid}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.TanzhenIpMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.TanzhenIp" >
+    <result column="ipid" property="ipid" jdbcType="BIGINT" />
+    <result column="qdsjid" property="qdsjid" jdbcType="VARCHAR" />
+    <result column="ywtanzhenid" property="ywtanzhenid" jdbcType="VARCHAR" />
+    <result column="ywid" property="ywid" jdbcType="VARCHAR" />
+    <result column="qdsjtime" property="qdsjtime" jdbcType="TIMESTAMP" />
+    <result column="jqid" property="jqid" jdbcType="VARCHAR" />
+    <result column="ip_info" property="ipInfo" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.TanzhenIpWithBLOBs" extends="BaseResultMap" >
+    <result column="userid" property="userid" jdbcType="LONGVARCHAR" />
+    <result column="detect2" property="detect2" jdbcType="LONGVARCHAR" />
+    <result column="detect3" property="detect3" jdbcType="LONGVARCHAR" />
+    <result column="detect4" property="detect4" jdbcType="LONGVARCHAR" />
+    <result column="detect5" property="detect5" jdbcType="LONGVARCHAR" />
+    <result column="detect6" property="detect6" jdbcType="LONGVARCHAR" />
+    <result column="detect7" property="detect7" jdbcType="LONGVARCHAR" />
+    <result column="detect8" property="detect8" jdbcType="LONGVARCHAR" />
+    <result column="detect9" property="detect9" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    userid, detect2, detect3, detect4, detect5, detect6, detect7, detect8, detect9
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.TanzhenIpWithBLOBs" >
+    insert into tanzhen_ip (ipid, qdsjid, ywtanzhenid, 
+      ywid, qdsjtime, jqid, 
+      ip_info, url, userid, 
+      detect2, detect3, detect4, 
+      detect5, detect6, detect7, 
+      detect8, detect9)
+    values (#{ipid,jdbcType=BIGINT}, #{qdsjid,jdbcType=VARCHAR}, #{ywtanzhenid,jdbcType=VARCHAR}, 
+      #{ywid,jdbcType=VARCHAR}, #{qdsjtime,jdbcType=TIMESTAMP}, #{jqid,jdbcType=VARCHAR}, 
+      #{ipInfo,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{userid,jdbcType=LONGVARCHAR}, 
+      #{detect2,jdbcType=LONGVARCHAR}, #{detect3,jdbcType=LONGVARCHAR}, #{detect4,jdbcType=LONGVARCHAR}, 
+      #{detect5,jdbcType=LONGVARCHAR}, #{detect6,jdbcType=LONGVARCHAR}, #{detect7,jdbcType=LONGVARCHAR}, 
+      #{detect8,jdbcType=LONGVARCHAR}, #{detect9,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.TanzhenIpWithBLOBs" >
+    insert into tanzhen_ip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ipid != null" >
+        ipid,
+      </if>
+      <if test="qdsjid != null" >
+        qdsjid,
+      </if>
+      <if test="ywtanzhenid != null" >
+        ywtanzhenid,
+      </if>
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="qdsjtime != null" >
+        qdsjtime,
+      </if>
+      <if test="jqid != null" >
+        jqid,
+      </if>
+      <if test="ipInfo != null" >
+        ip_info,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="detect2 != null" >
+        detect2,
+      </if>
+      <if test="detect3 != null" >
+        detect3,
+      </if>
+      <if test="detect4 != null" >
+        detect4,
+      </if>
+      <if test="detect5 != null" >
+        detect5,
+      </if>
+      <if test="detect6 != null" >
+        detect6,
+      </if>
+      <if test="detect7 != null" >
+        detect7,
+      </if>
+      <if test="detect8 != null" >
+        detect8,
+      </if>
+      <if test="detect9 != null" >
+        detect9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ipid != null" >
+        #{ipid,jdbcType=BIGINT},
+      </if>
+      <if test="qdsjid != null" >
+        #{qdsjid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywtanzhenid != null" >
+        #{ywtanzhenid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywid != null" >
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="qdsjtime != null" >
+        #{qdsjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jqid != null" >
+        #{jqid,jdbcType=VARCHAR},
+      </if>
+      <if test="ipInfo != null" >
+        #{ipInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect2 != null" >
+        #{detect2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect3 != null" >
+        #{detect3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect4 != null" >
+        #{detect4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect5 != null" >
+        #{detect5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect6 != null" >
+        #{detect6,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect7 != null" >
+        #{detect7,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect8 != null" >
+        #{detect8,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detect9 != null" >
+        #{detect9,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getById" resultType="com.safez.project.entity.TanzhenIpWithBLOBs" parameterType="java.lang.Integer" >
+        select  *
+        from tanzhen_ip
+        where ipid = #{id}
+    </select>
+
+  <select id="getPageList" resultType="com.safez.project.entity.TanzhenIpWithBLOBs" parameterType="java.lang.Integer" >
+        select  *
+        from tanzhen_ip
+    </select>
+</mapper>

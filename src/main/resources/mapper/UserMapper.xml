@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.User" >
+    <result column="userid" property="userid" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="createip" property="createip" jdbcType="VARCHAR" />
+    <result column="createjqid" property="createjqid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.UserWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.UserWithBLOBs" >
+    insert into user_manager (userid, username, passwd, 
+      createtime, createip, createjqid, 
+      info1, info2)
+    values (#{userid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{createip,jdbcType=VARCHAR}, #{createjqid,jdbcType=VARCHAR}, 
+      #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.UserWithBLOBs" >
+    insert into user_manager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="createip != null" >
+        createip,
+      </if>
+      <if test="createjqid != null" >
+        createjqid,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createip != null" >
+        #{createip,jdbcType=VARCHAR},
+      </if>
+      <if test="createjqid != null" >
+        #{createjqid,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getUser" resultType="com.safez.project.entity.UserWithBLOBs" parameterType="java.util.HashMap" >
+        select  *
+        from user_manager
+        where username = #{username}
+    </select>
+</mapper>

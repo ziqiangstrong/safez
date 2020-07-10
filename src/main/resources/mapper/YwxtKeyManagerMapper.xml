@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.safez.project.dao.YwxtKeyManagerMapper">
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwxtKeyManager">
+    <result column="keyid" jdbcType="BIGINT" property="keyid" />
+    <result column="ywid" jdbcType="VARCHAR" property="ywid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.safez.project.entity.YwxtKeyManagerWithBLOBs">
+    <result column="key1" jdbcType="LONGVARCHAR" property="key1" />
+    <result column="key2" jdbcType="LONGVARCHAR" property="key2" />
+    <result column="key3" jdbcType="LONGVARCHAR" property="key3" />
+    <result column="key4" jdbcType="LONGVARCHAR" property="key4" />
+    <result column="key5" jdbcType="LONGVARCHAR" property="key5" />
+    <result column="key6" jdbcType="LONGVARCHAR" property="key6" />
+    <result column="key7" jdbcType="LONGVARCHAR" property="key7" />
+    <result column="key8" jdbcType="LONGVARCHAR" property="key8" />
+    <result column="jskey1" jdbcType="LONGVARCHAR" property="jskey1" />
+    <result column="jskey2" jdbcType="LONGVARCHAR" property="jskey2" />
+    <result column="info1" jdbcType="LONGVARCHAR" property="info1" />
+    <result column="info2" jdbcType="LONGVARCHAR" property="info2" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    key1, key2, key3, key4, key5, key6, key7, key8, jskey1, jskey2, info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwxtKeyManagerWithBLOBs">
+    insert into ywxt_key_manager (keyid, ywid, key1, 
+      key2, key3, key4, 
+      key5, key6, key7, 
+      key8, jskey1, jskey2, 
+      info1, info2)
+    values (#{keyid,jdbcType=BIGINT}, #{ywid,jdbcType=VARCHAR}, #{key1,jdbcType=LONGVARCHAR}, 
+      #{key2,jdbcType=LONGVARCHAR}, #{key3,jdbcType=LONGVARCHAR}, #{key4,jdbcType=LONGVARCHAR}, 
+      #{key5,jdbcType=LONGVARCHAR}, #{key6,jdbcType=LONGVARCHAR}, #{key7,jdbcType=LONGVARCHAR}, 
+      #{key8,jdbcType=LONGVARCHAR}, #{jskey1,jdbcType=LONGVARCHAR}, #{jskey2,jdbcType=LONGVARCHAR}, 
+      #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwxtKeyManagerWithBLOBs">
+    insert into ywxt_key_manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="keyid != null">
+        keyid,
+      </if>
+      <if test="ywid != null">
+        ywid,
+      </if>
+      <if test="key1 != null">
+        key1,
+      </if>
+      <if test="key2 != null">
+        key2,
+      </if>
+      <if test="key3 != null">
+        key3,
+      </if>
+      <if test="key4 != null">
+        key4,
+      </if>
+      <if test="key5 != null">
+        key5,
+      </if>
+      <if test="key6 != null">
+        key6,
+      </if>
+      <if test="key7 != null">
+        key7,
+      </if>
+      <if test="key8 != null">
+        key8,
+      </if>
+      <if test="jskey1 != null">
+        jskey1,
+      </if>
+      <if test="jskey2 != null">
+        jskey2,
+      </if>
+      <if test="info1 != null">
+        info1,
+      </if>
+      <if test="info2 != null">
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="keyid != null">
+        #{keyid,jdbcType=BIGINT},
+      </if>
+      <if test="ywid != null">
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="key1 != null">
+        #{key1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key2 != null">
+        #{key2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key3 != null">
+        #{key3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key4 != null">
+        #{key4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key5 != null">
+        #{key5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key6 != null">
+        #{key6,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key7 != null">
+        #{key7,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="key8 != null">
+        #{key8,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jskey1 != null">
+        #{jskey1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jskey2 != null">
+        #{jskey2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info1 != null">
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null">
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getYwxtkeyManagerByYwId" resultType="com.safez.project.entity.YwxtKeyManagerWithBLOBs" parameterType="java.lang.String" >
+            select * from ywxt_key_manager where ywid = #{id}
+  </select>
+</mapper>

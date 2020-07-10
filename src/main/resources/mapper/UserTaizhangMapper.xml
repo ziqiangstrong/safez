@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.safez.project.dao.UserTaizhangMapper">
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.UserTaizhang">
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="jqbm" jdbcType="VARCHAR" property="jqbm" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.safez.project.entity.UserTaizhangWithBLOBs">
+    <result column="info1" jdbcType="LONGVARCHAR" property="info1" />
+    <result column="info2" jdbcType="LONGVARCHAR" property="info2" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.UserTaizhangWithBLOBs">
+    insert into user_taizhang (userid, username, department, 
+      role, jqbm, ip, info1, 
+      info2)
+    values (#{userid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{jqbm,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{info1,jdbcType=LONGVARCHAR}, 
+      #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.UserTaizhangWithBLOBs">
+    insert into user_taizhang
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="jqbm != null">
+        jqbm,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="info1 != null">
+        info1,
+      </if>
+      <if test="info2 != null">
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="jqbm != null">
+        #{jqbm,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null">
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null">
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getUserTaiZhangByUserName" resultType="com.safez.project.entity.UserTaizhangWithBLOBs" parameterType="java.lang.String">
+        select  * from user_taizhang where usename=#{username}
+  </select>
+</mapper>

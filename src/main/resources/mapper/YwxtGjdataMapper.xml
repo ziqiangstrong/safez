@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.YwxtGjdataMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwxtGjdata" >
+    <result column="gjid" property="gjid" jdbcType="BIGINT" />
+    <result column="ywid" property="ywid" jdbcType="VARCHAR" />
+    <result column="tzid" property="tzid" jdbcType="VARCHAR" />
+    <result column="gjtime" property="gjtime" jdbcType="TIMESTAMP" />
+    <result column="gjtype" property="gjtype" jdbcType="VARCHAR" />
+    <result column="gjip" property="gjip" jdbcType="VARCHAR" />
+    <result column="gjjqid" property="gjjqid" jdbcType="VARCHAR" />
+    <result column="gjtezhe" property="gjtezhe" jdbcType="VARCHAR" />
+    <result column="aqdj" property="aqdj" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="qdsjid" property="qdsjid" jdbcType="VARCHAR" />
+    <result column="hdsjid" property="hdsjid" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="set_status" property="setStatus" jdbcType="TINYINT" />
+    <result column="gjdatahash" property="gjdatahash" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.YwxtGjdataWithBLOBs" extends="BaseResultMap" >
+    <result column="reqinfo" property="reqinfo" jdbcType="LONGVARCHAR" />
+    <result column="resinfo" property="resinfo" jdbcType="LONGVARCHAR" />
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    reqinfo, resinfo, info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwxtGjdataWithBLOBs" >
+    insert into ywxt_gjdata (gjid, ywid, tzid, 
+      gjtime, gjtype, gjip, 
+      gjjqid, gjtezhe, aqdj, 
+      url, qdsjid, hdsjid, 
+      userid, set_status, gjdatahash, 
+      reqinfo, resinfo, info1, 
+      info2)
+    values (#{gjid,jdbcType=BIGINT}, #{ywid,jdbcType=VARCHAR}, #{tzid,jdbcType=VARCHAR}, 
+      #{gjtime,jdbcType=TIMESTAMP}, #{gjtype,jdbcType=VARCHAR}, #{gjip,jdbcType=VARCHAR}, 
+      #{gjjqid,jdbcType=VARCHAR}, #{gjtezhe,jdbcType=VARCHAR}, #{aqdj,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{qdsjid,jdbcType=VARCHAR}, #{hdsjid,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{setStatus,jdbcType=TINYINT}, #{gjdatahash,jdbcType=VARCHAR}, 
+      #{reqinfo,jdbcType=LONGVARCHAR}, #{resinfo,jdbcType=LONGVARCHAR}, #{info1,jdbcType=LONGVARCHAR}, 
+      #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwxtGjdataWithBLOBs" >
+    insert into ywxt_gjdata
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gjid != null" >
+        gjid,
+      </if>
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="tzid != null" >
+        tzid,
+      </if>
+      <if test="gjtime != null" >
+        gjtime,
+      </if>
+      <if test="gjtype != null" >
+        gjtype,
+      </if>
+      <if test="gjip != null" >
+        gjip,
+      </if>
+      <if test="gjjqid != null" >
+        gjjqid,
+      </if>
+      <if test="gjtezhe != null" >
+        gjtezhe,
+      </if>
+      <if test="aqdj != null" >
+        aqdj,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="qdsjid != null" >
+        qdsjid,
+      </if>
+      <if test="hdsjid != null" >
+        hdsjid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="setStatus != null" >
+        set_status,
+      </if>
+      <if test="gjdatahash != null" >
+        gjdatahash,
+      </if>
+      <if test="reqinfo != null" >
+        reqinfo,
+      </if>
+      <if test="resinfo != null" >
+        resinfo,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gjid != null" >
+        #{gjid,jdbcType=BIGINT},
+      </if>
+      <if test="ywid != null" >
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="tzid != null" >
+        #{tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="gjtime != null" >
+        #{gjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gjtype != null" >
+        #{gjtype,jdbcType=VARCHAR},
+      </if>
+      <if test="gjip != null" >
+        #{gjip,jdbcType=VARCHAR},
+      </if>
+      <if test="gjjqid != null" >
+        #{gjjqid,jdbcType=VARCHAR},
+      </if>
+      <if test="gjtezhe != null" >
+        #{gjtezhe,jdbcType=VARCHAR},
+      </if>
+      <if test="aqdj != null" >
+        #{aqdj,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="qdsjid != null" >
+        #{qdsjid,jdbcType=VARCHAR},
+      </if>
+      <if test="hdsjid != null" >
+        #{hdsjid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="setStatus != null" >
+        #{setStatus,jdbcType=TINYINT},
+      </if>
+      <if test="gjdatahash != null" >
+        #{gjdatahash,jdbcType=VARCHAR},
+      </if>
+      <if test="reqinfo != null" >
+        #{reqinfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="resinfo != null" >
+        #{resinfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getPageList" resultType="com.safez.project.entity.YwxtGjdataWithBLOBs" parameterType="java.lang.Integer" >
+        select  *
+        from ywxt_gjdata
+    </select>
+  <update id="updateState" >
+    update ywxt_gjdata set set_status= 1 where gjid in
+    <foreach collection="array" open="(" separator="," close=")" item="id">
+      #{id}
+    </foreach>
+  </update>
+
+  <select id="getObjById" resultType="com.safez.project.entity.YwxtGjdataWithBLOBs" parameterType="java.lang.String">
+    select
+     *
+    from ywxt_gjdata where gjid = #{id}
+  </select>
+
+  <select id="getObjByIp" resultType="com.safez.project.entity.YwxtGjdataWithBLOBs" parameterType="java.lang.String">
+    select * from ywxt_gjdata where gjip =#{ip}
+  </select>
+
+  <select id="getYwtzByYwId" resultType="java.util.HashMap" parameterType="java.lang.String">
+    select tzuseid,jrtztype from ywtanzhen_use where ywid = #{ywid}
+  </select>
+</mapper>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.YwxtHdSjMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwxtHdSj" >
+    <result column="hdsjid" property="hdsjid" jdbcType="BIGINT" />
+    <result column="ywid" property="ywid" jdbcType="VARCHAR" />
+    <result column="ywtanzhenid" property="ywtanzhenid" jdbcType="VARCHAR" />
+    <result column="hdsjtime" property="hdsjtime" jdbcType="TIMESTAMP" />
+    <result column="jqid" property="jqid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="behavior" property="behavior" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.YwxtHdSjWithBLOBs" extends="BaseResultMap" >
+    <result column="ip_info" property="ipInfo" jdbcType="LONGVARCHAR" />
+    <result column="url" property="url" jdbcType="LONGVARCHAR" />
+    <result column="jkid_info" property="jkidInfo" jdbcType="LONGVARCHAR" />
+    <result column="response_length" property="responseLength" jdbcType="LONGVARCHAR" />
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+    <result column="info3" property="info3" jdbcType="LONGVARCHAR" />
+    <result column="info4" property="info4" jdbcType="LONGVARCHAR" />
+    <result column="info5" property="info5" jdbcType="LONGVARCHAR" />
+    <result column="info6" property="info6" jdbcType="LONGVARCHAR" />
+    <result column="info7" property="info7" jdbcType="LONGVARCHAR" />
+    <result column="info8" property="info8" jdbcType="LONGVARCHAR" />
+    <result column="info9" property="info9" jdbcType="LONGVARCHAR" />
+    <result column="info10" property="info10" jdbcType="LONGVARCHAR" />
+    <result column="info11" property="info11" jdbcType="LONGVARCHAR" />
+    <result column="info12" property="info12" jdbcType="LONGVARCHAR" />
+    <result column="info13" property="info13" jdbcType="LONGVARCHAR" />
+    <result column="info14" property="info14" jdbcType="LONGVARCHAR" />
+    <result column="info15" property="info15" jdbcType="LONGVARCHAR" />
+    <result column="info16" property="info16" jdbcType="LONGVARCHAR" />
+    <result column="info17" property="info17" jdbcType="LONGVARCHAR" />
+    <result column="info18" property="info18" jdbcType="LONGVARCHAR" />
+    <result column="info19" property="info19" jdbcType="LONGVARCHAR" />
+    <result column="info20" property="info20" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    ip_info, url, jkid_info, response_length, info1, info2, info3, info4, info5, info6, 
+    info7, info8, info9, info10, info11, info12, info13, info14, info15, info16, info17, 
+    info18, info19, info20
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwxtHdSjWithBLOBs" >
+    insert into ywxt_hdsj (hdsjid, ywid, ywtanzhenid, 
+      hdsjtime, jqid, status, 
+      userid, behavior, ip_info, 
+      url, jkid_info, response_length, 
+      info1, info2, info3, 
+      info4, info5, info6, 
+      info7, info8, info9, 
+      info10, info11, info12, 
+      info13, info14, info15, 
+      info16, info17, info18, 
+      info19, info20)
+    values (#{hdsjid,jdbcType=BIGINT}, #{ywid,jdbcType=VARCHAR}, #{ywtanzhenid,jdbcType=VARCHAR}, 
+      #{hdsjtime,jdbcType=TIMESTAMP}, #{jqid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{behavior,jdbcType=VARCHAR}, #{ipInfo,jdbcType=LONGVARCHAR}, 
+      #{url,jdbcType=LONGVARCHAR}, #{jkidInfo,jdbcType=LONGVARCHAR}, #{responseLength,jdbcType=LONGVARCHAR}, 
+      #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR}, #{info3,jdbcType=LONGVARCHAR}, 
+      #{info4,jdbcType=LONGVARCHAR}, #{info5,jdbcType=LONGVARCHAR}, #{info6,jdbcType=LONGVARCHAR}, 
+      #{info7,jdbcType=LONGVARCHAR}, #{info8,jdbcType=LONGVARCHAR}, #{info9,jdbcType=LONGVARCHAR}, 
+      #{info10,jdbcType=LONGVARCHAR}, #{info11,jdbcType=LONGVARCHAR}, #{info12,jdbcType=LONGVARCHAR}, 
+      #{info13,jdbcType=LONGVARCHAR}, #{info14,jdbcType=LONGVARCHAR}, #{info15,jdbcType=LONGVARCHAR}, 
+      #{info16,jdbcType=LONGVARCHAR}, #{info17,jdbcType=LONGVARCHAR}, #{info18,jdbcType=LONGVARCHAR}, 
+      #{info19,jdbcType=LONGVARCHAR}, #{info20,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwxtHdSjWithBLOBs" >
+    insert into ywxt_hdsj
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hdsjid != null" >
+        hdsjid,
+      </if>
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="ywtanzhenid != null" >
+        ywtanzhenid,
+      </if>
+      <if test="hdsjtime != null" >
+        hdsjtime,
+      </if>
+      <if test="jqid != null" >
+        jqid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="behavior != null" >
+        behavior,
+      </if>
+      <if test="ipInfo != null" >
+        ip_info,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="jkidInfo != null" >
+        jkid_info,
+      </if>
+      <if test="responseLength != null" >
+        response_length,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+      <if test="info3 != null" >
+        info3,
+      </if>
+      <if test="info4 != null" >
+        info4,
+      </if>
+      <if test="info5 != null" >
+        info5,
+      </if>
+      <if test="info6 != null" >
+        info6,
+      </if>
+      <if test="info7 != null" >
+        info7,
+      </if>
+      <if test="info8 != null" >
+        info8,
+      </if>
+      <if test="info9 != null" >
+        info9,
+      </if>
+      <if test="info10 != null" >
+        info10,
+      </if>
+      <if test="info11 != null" >
+        info11,
+      </if>
+      <if test="info12 != null" >
+        info12,
+      </if>
+      <if test="info13 != null" >
+        info13,
+      </if>
+      <if test="info14 != null" >
+        info14,
+      </if>
+      <if test="info15 != null" >
+        info15,
+      </if>
+      <if test="info16 != null" >
+        info16,
+      </if>
+      <if test="info17 != null" >
+        info17,
+      </if>
+      <if test="info18 != null" >
+        info18,
+      </if>
+      <if test="info19 != null" >
+        info19,
+      </if>
+      <if test="info20 != null" >
+        info20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hdsjid != null" >
+        #{hdsjid,jdbcType=BIGINT},
+      </if>
+      <if test="ywid != null" >
+        #{ywid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywtanzhenid != null" >
+        #{ywtanzhenid,jdbcType=VARCHAR},
+      </if>
+      <if test="hdsjtime != null" >
+        #{hdsjtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jqid != null" >
+        #{jqid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="behavior != null" >
+        #{behavior,jdbcType=VARCHAR},
+      </if>
+      <if test="ipInfo != null" >
+        #{ipInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="jkidInfo != null" >
+        #{jkidInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="responseLength != null" >
+        #{responseLength,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info3 != null" >
+        #{info3,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info4 != null" >
+        #{info4,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info5 != null" >
+        #{info5,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info6 != null" >
+        #{info6,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info7 != null" >
+        #{info7,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info8 != null" >
+        #{info8,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info9 != null" >
+        #{info9,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info10 != null" >
+        #{info10,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info11 != null" >
+        #{info11,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info12 != null" >
+        #{info12,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info13 != null" >
+        #{info13,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info14 != null" >
+        #{info14,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info15 != null" >
+        #{info15,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info16 != null" >
+        #{info16,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info17 != null" >
+        #{info17,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info18 != null" >
+        #{info18,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info19 != null" >
+        #{info19,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info20 != null" >
+        #{info20,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getUserBehavior" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+      select qdsjid as id,ywid,ywtanzhenid ,qdsjtime as sbtime, userid as username,
+      ip_info as operateIp,jqid as equipmentid
+      from ywxt_qdsj
+      union
+      select hdsjid as id,ywid,ywtanzhenid ,hdsjtime as sbtime, userid as username,
+      ip_info as operateIp,jqid as equipmentid
+      from ywxt_hdsj
+    </select>
+</mapper>

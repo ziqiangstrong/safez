@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.UserBehaviorMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.UserBehavior" >
+    <result column="behid" property="behid" jdbcType="BIGINT" />
+    <result column="busfunc" property="busfunc" jdbcType="VARCHAR" />
+    <result column="subfunc" property="subfunc" jdbcType="VARCHAR" />
+    <result column="step" property="step" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="relation" property="relation" jdbcType="VARCHAR" />
+    <result column="rolecons" property="rolecons" jdbcType="VARCHAR" />
+    <result column="behavior" property="behavior" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.UserBehaviorWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.UserBehaviorWithBLOBs" >
+    insert into user_behavior (behid, busfunc, subfunc, 
+      step, url, relation, 
+      rolecons, behavior, info1, 
+      info2)
+    values (#{behid,jdbcType=BIGINT}, #{busfunc,jdbcType=VARCHAR}, #{subfunc,jdbcType=VARCHAR}, 
+      #{step,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{relation,jdbcType=VARCHAR}, 
+      #{rolecons,jdbcType=VARCHAR}, #{behavior,jdbcType=VARCHAR}, #{info1,jdbcType=LONGVARCHAR}, 
+      #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.UserBehaviorWithBLOBs" >
+    insert into user_behavior
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="behid != null" >
+        behid,
+      </if>
+      <if test="busfunc != null" >
+        busfunc,
+      </if>
+      <if test="subfunc != null" >
+        subfunc,
+      </if>
+      <if test="step != null" >
+        step,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="relation != null" >
+        relation,
+      </if>
+      <if test="rolecons != null" >
+        rolecons,
+      </if>
+      <if test="behavior != null" >
+        behavior,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="behid != null" >
+        #{behid,jdbcType=BIGINT},
+      </if>
+      <if test="busfunc != null" >
+        #{busfunc,jdbcType=VARCHAR},
+      </if>
+      <if test="subfunc != null" >
+        #{subfunc,jdbcType=VARCHAR},
+      </if>
+      <if test="step != null" >
+        #{step,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null" >
+        #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="rolecons != null" >
+        #{rolecons,jdbcType=VARCHAR},
+      </if>
+      <if test="behavior != null" >
+        #{behavior,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getEntityByIp" resultType="com.safez.project.entity.TanzhenIpWithBLOBs" parameterType="java.lang.Integer" >
+        select  *
+        from user_behavior
+        where url like  %#{ip}%
+    </select>
+</mapper>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.YwxtJieruManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.YwxtJieruManager" >
+    <result column="ywid" property="ywid" jdbcType="BIGINT" />
+    <result column="ywxittanzhengid" property="ywxittanzhengid" jdbcType="VARCHAR" />
+    <result column="ywxtname" property="ywxtname" jdbcType="VARCHAR" />
+    <result column="ywxtjrstate" property="ywxtjrstate" jdbcType="VARCHAR" />
+    <result column="ywxtnameen" property="ywxtnameen" jdbcType="VARCHAR" />
+    <result column="ywjierutime" property="ywjierutime" jdbcType="TIMESTAMP" />
+    <result column="ywindexpage" property="ywindexpage" jdbcType="VARCHAR" />
+    <result column="ywserveradd" property="ywserveradd" jdbcType="VARCHAR" />
+    <result column="jiamisend" property="jiamisend" jdbcType="BIT" />
+    <result column="jiamishuanfa" property="jiamishuanfa" jdbcType="VARCHAR" />
+    <result column="Javascriptjiami" property="javascriptjiami" jdbcType="BIT" />
+    <result column="ywxtqx" property="ywxtqx" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="mirror" property="mirror" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.YwxtJieruManagerWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.YwxtJieruManagerWithBLOBs" >
+    insert into ywxt_jieru_manager (ywid, ywxittanzhengid, ywxtname, 
+      ywxtjrstate, ywxtnameen, ywjierutime, 
+      ywindexpage, ywserveradd, jiamisend, 
+      jiamishuanfa, Javascriptjiami, ywxtqx, 
+      userid, mirror, info1, 
+      info2)
+    values (#{ywid,jdbcType=BIGINT}, #{ywxittanzhengid,jdbcType=VARCHAR}, #{ywxtname,jdbcType=VARCHAR}, 
+      #{ywxtjrstate,jdbcType=VARCHAR}, #{ywxtnameen,jdbcType=VARCHAR}, #{ywjierutime,jdbcType=TIMESTAMP}, 
+      #{ywindexpage,jdbcType=VARCHAR}, #{ywserveradd,jdbcType=VARCHAR}, #{jiamisend,jdbcType=BIT}, 
+      #{jiamishuanfa,jdbcType=VARCHAR}, #{javascriptjiami,jdbcType=BIT}, #{ywxtqx,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{mirror,jdbcType=VARCHAR}, #{info1,jdbcType=LONGVARCHAR}, 
+      #{info2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.YwxtJieruManagerWithBLOBs" >
+    insert into ywxt_jieru_manager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ywid != null" >
+        ywid,
+      </if>
+      <if test="ywxittanzhengid != null" >
+        ywxittanzhengid,
+      </if>
+      <if test="ywxtname != null" >
+        ywxtname,
+      </if>
+      <if test="ywxtjrstate != null" >
+        ywxtjrstate,
+      </if>
+      <if test="ywxtnameen != null" >
+        ywxtnameen,
+      </if>
+      <if test="ywjierutime != null" >
+        ywjierutime,
+      </if>
+      <if test="ywindexpage != null" >
+        ywindexpage,
+      </if>
+      <if test="ywserveradd != null" >
+        ywserveradd,
+      </if>
+      <if test="jiamisend != null" >
+        jiamisend,
+      </if>
+      <if test="jiamishuanfa != null" >
+        jiamishuanfa,
+      </if>
+      <if test="javascriptjiami != null" >
+        Javascriptjiami,
+      </if>
+      <if test="ywxtqx != null" >
+        ywxtqx,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="mirror != null" >
+        mirror,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ywid != null" >
+        #{ywid,jdbcType=BIGINT},
+      </if>
+      <if test="ywxittanzhengid != null" >
+        #{ywxittanzhengid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywxtname != null" >
+        #{ywxtname,jdbcType=VARCHAR},
+      </if>
+      <if test="ywxtjrstate != null" >
+        #{ywxtjrstate,jdbcType=VARCHAR},
+      </if>
+      <if test="ywxtnameen != null" >
+        #{ywxtnameen,jdbcType=VARCHAR},
+      </if>
+      <if test="ywjierutime != null" >
+        #{ywjierutime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ywindexpage != null" >
+        #{ywindexpage,jdbcType=VARCHAR},
+      </if>
+      <if test="ywserveradd != null" >
+        #{ywserveradd,jdbcType=VARCHAR},
+      </if>
+      <if test="jiamisend != null" >
+        #{jiamisend,jdbcType=BIT},
+      </if>
+      <if test="jiamishuanfa != null" >
+        #{jiamishuanfa,jdbcType=VARCHAR},
+      </if>
+      <if test="javascriptjiami != null" >
+        #{javascriptjiami,jdbcType=BIT},
+      </if>
+      <if test="ywxtqx != null" >
+        #{ywxtqx,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="mirror != null" >
+        #{mirror,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getObjByTanzhen" resultType="com.safez.project.entity.YwxtJieruManagerWithBLOBs" parameterType="java.lang.String" >
+         select * from ywxt_jieru_manager where ywxittanzhengid = #{id,jdbcType=LONGVARCHAR}
+    </select>
+</mapper>

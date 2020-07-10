@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.safez.project.dao.TanzhengManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.safez.project.entity.TanzhengManager" >
+    <result column="tzid" property="tzid" jdbcType="BIGINT" />
+    <result column="tzcreatetime" property="tzcreatetime" jdbcType="TIMESTAMP" />
+    <result column="tzname" property="tzname" jdbcType="VARCHAR" />
+    <result column="tzmiaoshu" property="tzmiaoshu" jdbcType="VARCHAR" />
+    <result column="tzfunction" property="tzfunction" jdbcType="VARCHAR" />
+    <result column="tzpath" property="tzpath" jdbcType="VARCHAR" />
+    <result column="tztype" property="tztype" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.safez.project.entity.TanzhengManagerWithBLOBs" extends="BaseResultMap" >
+    <result column="info1" property="info1" jdbcType="LONGVARCHAR" />
+    <result column="info2" property="info2" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    info1, info2
+  </sql>
+  <insert id="insert" parameterType="com.safez.project.entity.TanzhengManagerWithBLOBs" >
+    insert into tanzheng_manager (tzid, tzcreatetime, tzname, 
+      tzmiaoshu, tzfunction, tzpath, 
+      tztype, info1, info2
+      )
+    values (#{tzid,jdbcType=BIGINT}, #{tzcreatetime,jdbcType=TIMESTAMP}, #{tzname,jdbcType=VARCHAR}, 
+      #{tzmiaoshu,jdbcType=VARCHAR}, #{tzfunction,jdbcType=VARCHAR}, #{tzpath,jdbcType=VARCHAR}, 
+      #{tztype,jdbcType=VARCHAR}, #{info1,jdbcType=LONGVARCHAR}, #{info2,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.safez.project.entity.TanzhengManagerWithBLOBs" >
+    insert into tanzheng_manager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tzid != null" >
+        tzid,
+      </if>
+      <if test="tzcreatetime != null" >
+        tzcreatetime,
+      </if>
+      <if test="tzname != null" >
+        tzname,
+      </if>
+      <if test="tzmiaoshu != null" >
+        tzmiaoshu,
+      </if>
+      <if test="tzfunction != null" >
+        tzfunction,
+      </if>
+      <if test="tzpath != null" >
+        tzpath,
+      </if>
+      <if test="tztype != null" >
+        tztype,
+      </if>
+      <if test="info1 != null" >
+        info1,
+      </if>
+      <if test="info2 != null" >
+        info2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tzid != null" >
+        #{tzid,jdbcType=BIGINT},
+      </if>
+      <if test="tzcreatetime != null" >
+        #{tzcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tzname != null" >
+        #{tzname,jdbcType=VARCHAR},
+      </if>
+      <if test="tzmiaoshu != null" >
+        #{tzmiaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="tzfunction != null" >
+        #{tzfunction,jdbcType=VARCHAR},
+      </if>
+      <if test="tzpath != null" >
+        #{tzpath,jdbcType=VARCHAR},
+      </if>
+      <if test="tztype != null" >
+        #{tztype,jdbcType=VARCHAR},
+      </if>
+      <if test="info1 != null" >
+        #{info1,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="info2 != null" >
+        #{info2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getTanzhenAll" resultType="java.util.HashMap" parameterType="java.lang.String" >
+                        select * from tanzheng_manager
+    </select>
+
+
+</mapper>
