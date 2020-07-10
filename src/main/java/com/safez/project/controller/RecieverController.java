@@ -151,7 +151,6 @@ public class RecieverController {
 
         public boolean ywxtQdsjInsert(String ywid,String ywtanzhenid,Date qdsjtime,String jqid,String userid,String ip,String url){
             boolean result=false;
-
             return result;
         }
 

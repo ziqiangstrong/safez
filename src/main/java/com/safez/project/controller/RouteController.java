@@ -96,7 +96,7 @@ public class RouteController {
                 }
             }
           String tz_path="D:\\programs\\xampp\\htdocs\\www\\tzfile";
-            //插入表尾
+          //插入表尾
           result=insertFoot(result);
 //        foreach ($jrtz_id_all as $key => $value){
 //            if($tzinfo_all["tzid_".$value]['tzfunction']=="ajax_info"){
